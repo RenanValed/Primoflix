@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:primoflix/pages/favorite_page.dart';
 import 'package:primoflix/pages/movie_page.dart';
 import 'package:primoflix/pages/home_page.dart';
+import 'package:primoflix/components/header.dart';
+
 
 
 class Tabbar extends StatelessWidget {
@@ -28,6 +30,9 @@ class Tabbar extends StatelessWidget {
     return DefaultTabController(
         length: tabLength,
         child: Scaffold(
+          appBar: AppBar(
+            title: Header(),
+          ),
           bottomNavigationBar: Container(
             color: Color(0xFF181818),
             child: TabBar(
