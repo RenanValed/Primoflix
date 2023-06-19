@@ -10,7 +10,7 @@ class Header extends StatelessWidget{
       crossAxisAlignment: CrossAxisAlignment.center,
       textBaseline: TextBaseline.alphabetic,
       children: <Widget>[
-        Icon(Icons.menu),
+        Icon(Icons.menu, color: Color(0xFFF2F2F2),),
         Image.asset('resources/imagens/PRIMOFLIX_LOGO.png'),
         CircleAvatar(
           radius: 26,
@@ -18,45 +18,7 @@ class Header extends StatelessWidget{
             'https://avatars.githubusercontent.com/u/86006755?s=400&u=f9cc0927106de2d83cc1e2bd36f27e0936b8ae84&v=4',    
           ),
         ),
-        
       ]
     );
   }
 }
-
-/*
-child: Row(
-  crossAxisAlignment: CrossAxisAlignment.baseline,
-  textBaseline: TextBaseline.alphabetic,
-  children: <Widget>[
-    Container(
-      alignment: Alignment.bottomCenter,
-      width: 100,
-      height: 100,
-      color: Colors.teal,
-      child: Text(
-        'Widget 1',
-        style: TextStyle(fontSize: 18, color: Colors.white),
-      ),
-    ),
-    Container(
-      alignment: Alignment.center,
-      width: 100,
-      height: 100,
-      color: Colors.indigo,
-      child: Text(
-        'Widget 2',
-        style: TextStyle(fontSize: 18, color: Colors.white),
-      ),
-    ),
-    Container(
-      alignment: Alignment.center,
-      width: 100,
-      height: 100,
-      color: Colors.deepOrange,
-      child: Text(
-        'Widget 3',
-        style: TextStyle(fontSize: 18, color: Colors.white),
-      ),
-    ),
-*/
