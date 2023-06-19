@@ -14,38 +14,40 @@ class Tabbar extends StatelessWidget {
     final controller = Get.put(TabBarController());
 
     var tabs = const [
-      Tab(text:'início', icon: Icon(Icons.home_outlined)),
-      Tab(text:'busca', icon: Icon(Icons.search)),
-      Tab(text:'favoritos', icon: Icon(Icons.favorite_outline))
+      Tab(text:'início', height: 70,icon: Icon(Icons.home_outlined, size: 35,)),
+      Tab(text:'busca', height: 70, icon: Icon(Icons.search, size: 35)),
+      Tab(text:'favoritos', height: 70, icon: Icon(Icons.favorite_outline, size: 35))
     ];
 
     var telas = const [
       HomePage(),
-      FavoritePage(),
-      MoviePage()
+      MoviePage(),
+      FavoritePage()
     ];
 
     var tabLength = tabs.length == telas.length ? tabs.length : 0;
 
     return DefaultTabController(
-        length: tabLength,
-        child: Scaffold(
-          appBar: AppBar(
-            title: Header(),
-          ),
-          bottomNavigationBar: Container(
-            color: Color(0xFF181818),
-            child: TabBar(
-              labelColor: Color(0xFFE40812),
-              unselectedLabelColor: Color(0XFFF2F2F2),
-              indicatorColor: Color(0XFF181818),
-              tabs: tabs
-            ),
-          ),
-          body: TabBarView(
-            children: telas,
+      length: tabLength,
+      child: Scaffold(
+        appBar: AppBar(
+          elevation: 1,
+          backgroundColor: Color.fromARGB(255, 18, 18, 18),
+          title: Header(),
+        ),
+        bottomNavigationBar: Container(
+          color: Color(0xFF181818),
+          child: TabBar(
+            labelColor: Color(0xFFE40812),
+            unselectedLabelColor: Color(0XFFF2F2F2),
+            indicatorColor: Color(0XFF181818),
+            tabs: tabs
           ),
         ),
+        body: TabBarView(
+          children: telas,
+        ),
+      ),
     );
   }
 }
