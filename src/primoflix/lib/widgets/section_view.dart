@@ -33,8 +33,8 @@ class _SectionViewState extends State<SectionView> {
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       color: Colors.white,
-                      width: 100,
-                      height: 50,
+                      width: 120,
+                      height: 150,
                     ),
                   );
                 }),
