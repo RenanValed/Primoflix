@@ -4,7 +4,7 @@ import 'package:primoflix/pages/home_page.dart';
 import 'package:primoflix/controller/tab_bar_control.dart';
 
 void main() {
-  runApp( GetMaterialApp(home: Tabbar()));
+  runApp(GetMaterialApp(home: Tabbar()));
 }
 
 class MyApp extends GetMaterialApp {
@@ -13,7 +13,8 @@ class MyApp extends GetMaterialApp {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(), // função MyHome
+      scrollBehavior: ScrollBehavior(),
+      home: const HomePage(), // função MyHome
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.dark,
