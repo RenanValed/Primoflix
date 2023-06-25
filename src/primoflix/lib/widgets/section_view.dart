@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:primoflix/components/card_movie.dart';
 
 class SectionView extends StatefulWidget {
   SectionView({super.key, required this.sectionTitle});
@@ -29,13 +30,8 @@ class _SectionViewState extends State<SectionView> {
                 itemCount: 6,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      color: Colors.white,
-                      width: 120,
-                      height: 150,
-                    ),
+                  return CardMovie(
+                    image: 'https://avatars.githubusercontent.com/u/86006755?s=400&u=f9cc0927106de2d83cc1e2bd36f27e0936b8ae84&v=4'
                   );
                 }),
           )
