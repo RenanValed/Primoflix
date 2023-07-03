@@ -11,6 +11,7 @@ class Tabbar extends StatelessWidget {
    
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     final controller = Get.put(TabBarController());
 
     var tabs = const [
