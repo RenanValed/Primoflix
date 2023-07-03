@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class RelevantCard extends StatefulWidget {
-  RelevantCard({Key? key, required this.image});
+  RelevantCard({Key? key, required this.image, required this.id});
 
+  final int id;
   final String image;
 
   @override

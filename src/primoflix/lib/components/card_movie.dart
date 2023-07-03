@@ -2,17 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:primoflix/pages/detalhe_page.dart';
 import 'package:get/get.dart';
 
-
 class CardMovie extends StatefulWidget {
   CardMovie({Key? key, required this.image});
   
   final String image;
 
   @override
-  State<CardMovie> createState() => _CardMovieState();
+  State<CardMovie> createState() => _CardMovieState(image);
 }
 
 class _CardMovieState extends State<CardMovie> {
+  String image;
+
+  _CardMovieState(this.image);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,6 +23,7 @@ class _CardMovieState extends State<CardMovie> {
       height: 170,
       margin: const EdgeInsets.symmetric(horizontal: 2),
       decoration: BoxDecoration(
+        
         borderRadius: BorderRadius.circular(8),
         shape: BoxShape.rectangle,
         image: DecorationImage(
@@ -30,10 +34,11 @@ class _CardMovieState extends State<CardMovie> {
       child: Align (
         alignment: Alignment.bottomRight,
         child:FloatingActionButton(
+          heroTag: image,
           hoverColor: Colors.transparent,
           foregroundColor: Colors.transparent,
           backgroundColor: Colors.transparent,
-          onPressed: ()=> Get.to(DetalhePage()) ,
+          onPressed: ()=> Get.to(()=>const DetalhePage()) ,
           child: const Icon(
             Icons.favorite_outline,
             color: Colors.red,
