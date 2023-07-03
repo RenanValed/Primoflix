@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 18, 18, 18),
+      backgroundColor:const Color.fromARGB(255, 18, 18, 18),
       body: SingleChildScrollView(
         child: Column(children: [
           RelevantMoviesListView(), 

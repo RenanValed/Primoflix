@@ -6,6 +6,8 @@ class DetalhePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('kdfmkdf');
+
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 18, 18, 18),
       appBar: AppBar(
@@ -14,7 +16,7 @@ class DetalhePage extends StatelessWidget {
         //title: Text(style: ),
         leading: BackButton(
           color: Color(0xFFF2F2F2),
-          onPressed: () => Get.back()),
+          onPressed: () => 10),
       ),
       body: Center(
         child: Text("Essa será uma página de detalhes"),
