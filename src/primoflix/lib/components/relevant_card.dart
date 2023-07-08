@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class RelevantCard extends StatefulWidget {
   RelevantCard({Key? key, required this.image, required this.id});
 
-  final int id;
-  final String image;
+  final int? id;
+  final String? image;
 
   @override
   State<RelevantCard> createState() => _RelevantCardState();
@@ -19,7 +19,7 @@ class _RelevantCardState extends State<RelevantCard> {
       decoration: BoxDecoration(
         shape: BoxShape.rectangle,
         image: DecorationImage(
-          image: NetworkImage(widget.image),
+          image: NetworkImage('https://image.tmdb.org/t/p/w500${widget.image}'),
           fit: BoxFit.cover
         ),
       ),
