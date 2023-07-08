@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 
-class ScrollController extends GetxController {
-  final itemsPerPage = 15;
-  var movieList = <int>[].obs;
+class InfiniteScrollController extends GetxController {
+  final itemsPerPage = 18;
+  var movieList = <String>[].obs;
   var isLoading = false.obs;
   var currentPage = 1;
 
@@ -10,11 +10,15 @@ class ScrollController extends GetxController {
     isLoading.value = true;
 
     Future.delayed(const Duration(seconds: 2), () {
-      final newMovies = List.generate(
+      currentPage++;
+      final newItems = List.generate(
         itemsPerPage,
-        (index) => movieList.length + index,
+        (index) => 'Item ${(currentPage - 2) * itemsPerPage + index}',
       );
+      movieList.addAll(newItems);
+      isLoading.value = false;
     });
+  }
 
     @override
     void onInit() {
@@ -22,4 +26,3 @@ class ScrollController extends GetxController {
       loadMoreMovies();
     }
   }
-}
