@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class MoviePage extends StatefulWidget {
-  const MoviePage({Key? key}) : super(key: key);
+import '../controller/infinite_scoll.dart';
 
-  @override
-  _MoviePageState createState() => _MoviePageState();
-}
-
-class _MoviePageState extends State<MoviePage> {
-  List<int> movieList = List.generate(16, (index) => index);
-  bool isLoading = false;
+class MoviePage extends StatelessWidget {
+  final InfiniteScrollController controller = Get.put(InfiniteScrollController());
 
   @override
   Widget build(BuildContext context) {
@@ -55,32 +50,42 @@ class _MoviePageState extends State<MoviePage> {
               ],
             ),
             Expanded(
-              child: NotificationListener<ScrollNotification>(
-                onNotification: (ScrollNotification scrollInfo) {
-                  if (!isLoading &&
-                      scrollInfo.metrics.pixels ==
-                          scrollInfo.metrics.maxScrollExtent) {
-                    return true;
-                  }
-                  return false;
-                },
-                child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                  ),
-                  itemCount: movieList.length + 1,
-                  itemBuilder: (context, index) {
-                    if (index < movieList.length) {
-                      return Card(
-                        child: Container(
-                          color: Colors.amber,
-                          child: Center(child: Text('${movieList[index]}')),
-                        ),
-                      );
-                    } else {
-                      return buildProgressIndicator();
+              child: Obx(
+                () => NotificationListener<ScrollNotification>(
+                  onNotification: (ScrollNotification scrollInfo) {
+                    if (!controller.isLoading.value &&
+                        scrollInfo.metrics.pixels ==
+                            scrollInfo.metrics.maxScrollExtent) {
+                      controller.loadMoreMovies();
+                      return true;
                     }
+                    return false;
                   },
+                  child: GridView.builder(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                    ),
+                    itemCount: controller.movieList.length + 1,
+                    itemBuilder: (context, index) {
+                      if (index < controller.movieList.length) {
+                        return Card(
+                          child: Container(
+                            color: Colors.amber,
+                            child: Center(
+                                child:
+                                    Text('${controller.movieList[index]}')),
+                          ),
+                        );
+                      } else {
+                        if (controller.movieList.isEmpty) {
+                          return Container(); // Nenhum item
+                        } else {
+                          return buildProgressIndicator();
+                        }
+                      }
+                    },
+                  ),
                 ),
               ),
             ),
@@ -98,5 +103,4 @@ class _MoviePageState extends State<MoviePage> {
       ),
     );
   }
-
 }
