@@ -20,10 +20,10 @@ class Tabbar extends StatelessWidget {
       Tab(text:'favoritos', height: 70, icon: Icon(Icons.favorite_outline, size: 35))
     ];
 
-    var telas = const [
-      HomePage(),
+    var telas = [
+      const HomePage(),
       MoviePage(),
-      FavoritePage()
+      const FavoritePage()
     ];
 
     var tabLength = tabs.length == telas.length ? tabs.length : 0;
