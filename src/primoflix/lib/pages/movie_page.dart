@@ -60,7 +60,6 @@ class _MoviePageState extends State<MoviePage> {
                   if (!isLoading &&
                       scrollInfo.metrics.pixels ==
                           scrollInfo.metrics.maxScrollExtent) {
-                    loadMoreMovies();
                     return true;
                   }
                   return false;
@@ -100,18 +99,4 @@ class _MoviePageState extends State<MoviePage> {
     );
   }
 
-  void loadMoreMovies() {
-    setState(() {
-      isLoading = true;
-    });
-
-    // Simulating an asynchronous request for new movies
-    Future.delayed(const Duration(seconds: 2), () {
-      List<int> newMovies = List.generate(8, (index) => movieList.length + index);
-      setState(() {
-        movieList.addAll(newMovies);
-        isLoading = false;
-      });
-    });
-  }
 }
