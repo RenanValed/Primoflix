@@ -74,7 +74,7 @@ class MoviePage extends StatelessWidget {
                             color: Colors.amber,
                             child: Center(
                                 child:
-                                    Text('${controller.movieList[index]}')),
+                                    Text(controller.movieList[index])),
                           ),
                         );
                       } else {
