@@ -11,10 +11,10 @@ class HomePage extends StatelessWidget {
       backgroundColor:const Color.fromARGB(255, 18, 18, 18),
       body: SingleChildScrollView(
         child: Column(children: [
-          RelevantMoviesListView(), 
-          SectionView(sectionTitle: "Continue de onde parou"),
-          SectionView(sectionTitle: "Categorias"),
-          SectionView(sectionTitle: "Populares"),
+          RelevantMoviesListView(),
+          SectionView(sectionTitle: "Tendências"),
+          SectionView(sectionTitle: "O que os PRIMOS vêem"),
+          SectionView(sectionTitle: "Popular"),
         ]),
       )
     );
