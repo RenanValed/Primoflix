@@ -21,4 +21,4 @@ dynamic fetchData(String url) async{
     } catch(e){
       debugPrint('Error while getting data: $e');
     }
-  } 
+}
