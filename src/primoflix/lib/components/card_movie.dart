@@ -3,9 +3,10 @@ import 'package:primoflix/pages/detalhe_page.dart';
 import 'package:get/get.dart';
 
 class CardMovie extends StatelessWidget {
-  CardMovie({Key? key, required this.image});
+  CardMovie({Key? key, required this.image, required this.id});
   
   final String? image;
+  final int? id;
   var isClicked = false.obs;
   
   
@@ -19,14 +20,14 @@ class CardMovie extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         image: DecorationImage(
-          image: NetworkImage('https://image.tmdb.org/t/p/w500${this.image}'),
+          image: NetworkImage('https://image.tmdb.org/t/p/w500${image}'),
           fit: BoxFit.cover
         ),
       ),
       child: Align (
         alignment: Alignment.bottomRight,
-        child:FloatingActionButton(
-          heroTag: this.image,
+        child: FloatingActionButton(
+          heroTag: null,
           hoverColor: Colors.transparent,
           foregroundColor: Colors.transparent,
           backgroundColor: Colors.transparent,
