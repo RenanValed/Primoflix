@@ -1,25 +1,20 @@
 import 'package:flutter/material.dart';
 
-class RelevantCard extends StatefulWidget {
+class RelevantCard extends StatelessWidget {
   RelevantCard({Key? key, required this.image, required this.id});
 
   final int? id;
   final String? image;
 
   @override
-  State<RelevantCard> createState() => _RelevantCardState();
-}
-
-class _RelevantCardState extends State<RelevantCard> {
-  @override
   Widget build(BuildContext context) {
     return Container(
       width: 375,
-      margin: const EdgeInsets.symmetric(horizontal: 24),
+      margin: const EdgeInsets.symmetric(horizontal: 1, vertical: 4),
       decoration: BoxDecoration(
         shape: BoxShape.rectangle,
         image: DecorationImage(
-          image: NetworkImage('https://image.tmdb.org/t/p/w500${widget.image}'),
+          image: NetworkImage('https://image.tmdb.org/t/p/w500${this.image}'),
           fit: BoxFit.cover
         ),
       ),
