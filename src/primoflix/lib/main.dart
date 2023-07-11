@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:primoflix/pages/home_page.dart';
-import 'package:primoflix/controller/tab_bar_control.dart';
+import 'components/BottomNavBar.dart';
 
 void main() {
-  runApp(GetMaterialApp(home: Tabbar()));
+  runApp(GetMaterialApp(home: BottomNav()));
 }
 
 class MyApp extends GetMaterialApp {

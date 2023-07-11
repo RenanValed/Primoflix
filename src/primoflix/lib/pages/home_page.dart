@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:primoflix/components/header.dart';
+import 'package:primoflix/data/MovieModel.dart';
+import 'package:primoflix/data/fetchData.dart';
 import 'package:primoflix/widgets/relevant_movie_list_view.dart';
 import 'package:primoflix/widgets/section_view.dart';
-
-import '../data/MovieModel.dart';
-import '../data/fetchData.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -18,6 +18,11 @@ class HomePage extends StatelessWidget {
     }
 
     return Scaffold(
+      appBar: AppBar(
+        elevation: 1, 
+        backgroundColor: Color.fromARGB(255, 18, 18, 18), 
+        title: Header(),
+      ),
       backgroundColor:const Color.fromARGB(255, 18, 18, 18),
       body: SingleChildScrollView(
         child: Column(
