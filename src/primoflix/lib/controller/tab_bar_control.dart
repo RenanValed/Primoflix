@@ -21,7 +21,7 @@ class Tabbar extends StatelessWidget {
     ];
 
     var telas = [
-      const HomePage(),
+      HomePage(),
       MoviePage(),
       const FavoritePage()
     ];
