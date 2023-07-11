@@ -71,7 +71,8 @@ class MoviePage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       if (index < controller.movieList.length) {
                         return CardMovie(
-                          image: '/1qos0X6EIi4KT9RmJiVGZB9Kw6l.jpg' 
+                          image: '/1qos0X6EIi4KT9RmJiVGZB9Kw6l.jpg',
+                          id: 1
                         );
                       } else {
                         if (controller.movieList.isEmpty) {
