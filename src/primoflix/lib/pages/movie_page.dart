@@ -12,7 +12,7 @@ class MoviePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 18, 18, 18),
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 24),
+        padding: const EdgeInsets.symmetric(vertical: 48, horizontal: 24),
         child: Column(
           children: [
             Row(
@@ -63,6 +63,7 @@ class MoviePage extends StatelessWidget {
                     return false;
                   },
                   child: GridView.builder(
+                    padding: EdgeInsetsDirectional.symmetric( horizontal: 4, vertical: 24),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
@@ -70,10 +71,12 @@ class MoviePage extends StatelessWidget {
                     itemCount: controller.movieList.length + 1,
                     itemBuilder: (context, index) {
                       if (index < controller.movieList.length) {
-                        return CardMovie(
-                          image: '/1qos0X6EIi4KT9RmJiVGZB9Kw6l.jpg',
-                          id: 1
-                        );
+                        return Container(
+                          margin: EdgeInsets.all(2),
+                          child:CardMovie(
+                            image: '/1qos0X6EIi4KT9RmJiVGZB9Kw6l.jpg',
+                            id: 1
+                        ));
                       } else {
                         if (controller.movieList.isEmpty) {
                           return Container(); // Nenhum item
