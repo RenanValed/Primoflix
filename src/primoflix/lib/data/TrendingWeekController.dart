@@ -6,6 +6,8 @@ class TrendingWController extends GetxController{
   var isLoading = false.obs;
   MovieModel? movieModel;
 
+  // get isTrendingLoading => null;
+
   @override
   Future<void> onInit() async{
     super.onInit();
