@@ -1,9 +1,8 @@
 import 'package:get/get.dart';
 import 'package:primoflix/data/MovieModel.dart';
-
 import 'fetchData.dart';
 
-class UpcomingMovieController extends GetxController{
+class PopularController extends GetxController{
   var isLoading = false.obs;
   MovieModel? movieModel;
 
@@ -11,9 +10,8 @@ class UpcomingMovieController extends GetxController{
   Future<void> onInit() async{
     super.onInit();
     isLoading(true);
-    var res = await fetchData('movie/upcoming');
+    var res = await fetchData('movie/popular?language=pt-BR');
     movieModel = MovieModel.fromJson(res);
     isLoading(false);
-    
   }
 }

@@ -14,7 +14,7 @@ class MyApp extends GetMaterialApp {
   Widget build(BuildContext context) {
     return MaterialApp(
       scrollBehavior: ScrollBehavior(),
-      home: const HomePage(), // função MyHome
+      home: HomePage(), // função MyHome
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.dark,

@@ -19,12 +19,12 @@ class RelevantMoviesListView extends StatelessWidget {
           :
           ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: upcomingMovieController.upcomingMovieModel?.assets?.length ?? 0,
+            itemCount: upcomingMovieController.movieModel?.assets?.length ?? 0,
             itemBuilder: 
               (context, index) => 
                 RelevantCard(
-                  image: upcomingMovieController.upcomingMovieModel!.assets![index].poster_path,
-                  id: upcomingMovieController.upcomingMovieModel!.assets![index].id,
+                  image: upcomingMovieController.movieModel!.assets![index].poster_path,
+                  id: upcomingMovieController.movieModel!.assets![index].id,
                 ),
           ),
         )
