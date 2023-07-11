@@ -33,7 +33,8 @@ class SectionView extends StatelessWidget {
                   onTap: () => Get.to(()=>DetalhePage(movie: movieModel?.assets?[index])), 
                     // arguments: { 'movie': movieModel?.assets?[index] }),
                   child: CardMovie(
-                    image: movieModel?.assets?[index].poster_path
+                    image: movieModel?.assets?[index].poster_path,
+                    id: movieModel?.assets?[index].id
                   ),
                 );
               }
