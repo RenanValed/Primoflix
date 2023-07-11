@@ -6,13 +6,14 @@ dynamic fetchData(String url) async{
     try{
       // isLoading(true);
       http.Response response = await http.get( Uri.tryParse(
-          'https://api.themoviedb.org/3/${url}?api_key=0fffac71fbe41c4a03797e90ed24dbcb')!
+          'https://api.themoviedb.org/3/${url}?api_key=0fffac71fbe41c4a03797e90ed24dbcb&language=pt-BR')!
       );
       // debugPrint('prev-Request');
       if (response.statusCode == 200){
         // Requisição deu certo...
         debugPrint('Request');
-        return jsonDecode(response.body);
+        var res = jsonDecode(response.body);
+        return res;
       } else {
         debugPrint('Error fetching data');
       }
