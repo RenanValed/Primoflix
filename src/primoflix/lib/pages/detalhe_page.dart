@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:primoflix/data/MovieModel.dart';
+import 'package:primoflix/pages/home_page.dart';
 
 class DetalhePage extends StatelessWidget {
   DetalhePage({super.key, required this.movie});
@@ -18,10 +19,12 @@ class DetalhePage extends StatelessWidget {
         //title: Text(style: ),
         leading: BackButton(
           color: Color(0xFFF2F2F2),
-          onPressed: () => Get.back( closeOverlays: true)),
+          onPressed: () => Get.back()),
       ),
       body: Center(
-        child: Text("${movie!.title}"),
+        child: Text(
+          "${movie!.title}",
+          style: TextStyle(color: Colors.white),),
       ),
     );
   }
