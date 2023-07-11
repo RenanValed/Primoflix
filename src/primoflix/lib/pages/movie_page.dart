@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:primoflix/components/card_movie.dart';
 
 import '../controller/infinite_scoll.dart';
 
@@ -69,13 +70,8 @@ class MoviePage extends StatelessWidget {
                     itemCount: controller.movieList.length + 1,
                     itemBuilder: (context, index) {
                       if (index < controller.movieList.length) {
-                        return Card(
-                          child: Container(
-                            color: Colors.amber,
-                            child: Center(
-                                child:
-                                    Text(controller.movieList[index])),
-                          ),
+                        return CardMovie(
+                          image: '/1qos0X6EIi4KT9RmJiVGZB9Kw6l.jpg' 
                         );
                       } else {
                         if (controller.movieList.isEmpty) {
