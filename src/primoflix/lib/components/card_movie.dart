@@ -6,13 +6,12 @@ class CardMovie extends StatelessWidget {
   CardMovie({Key? key, required this.image});
   
   final String? image;
-  final bool isClicked = false;
+  var isClicked = false.obs;
   
   
   @override
   Widget build(BuildContext context) {
-    final IconData icon = isClicked ? Icons.favorite : Icons.favorite_outline;
-
+    
     return Container(
       width: 150,
       height: 170,
@@ -31,11 +30,19 @@ class CardMovie extends StatelessWidget {
           hoverColor: Colors.transparent,
           foregroundColor: Colors.transparent,
           backgroundColor: Colors.transparent,
-          onPressed: ()=> !isClicked ,
-          child: const Icon(
-            Icons.favorite,
-            color: Colors.red,
-            size: 36,
+          onPressed: ()=> isClicked.toggle() ,
+          child: 
+            Obx(() => isClicked.value ?
+              const Icon(
+                Icons.favorite,
+                color: Colors.red,
+                size: 36)
+              :
+              const Icon(
+                  Icons.favorite_outline,
+                  color: Colors.red,
+                  size: 36,
+              )
           )
         ),
       )
