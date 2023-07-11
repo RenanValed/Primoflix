@@ -82,7 +82,7 @@ class BottomNav extends StatelessWidget {
           () => IndexedStack(
             index: bottomPageController.tabIndex.value,
             children: [
-              const HomePage(),
+              HomePage(),
               MoviePage(),
               const FavoritePage(),
             ],
