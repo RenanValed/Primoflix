@@ -9,6 +9,7 @@ class SectionView extends StatelessWidget {
 
   final String sectionTitle;
   final MovieModel? movieModel;
+  
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -25,17 +26,18 @@ class SectionView extends StatelessWidget {
             height: 200,
             width: double.maxFinite,
             child: ListView.builder(
-                itemCount: movieModel?.assets?.length,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return GestureDetector(
-                    onTap: () => Get.to(DetalhePage(), 
-                    arguments: { 'movie': movieModel?.assets?[index] }),
-                    child: CardMovie(
+              itemCount: movieModel?.assets?.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () => Get.to(()=>DetalhePage(movie: movieModel?.assets?[index])), 
+                    // arguments: { 'movie': movieModel?.assets?[index] }),
+                  child: CardMovie(
                     image: movieModel?.assets?[index].poster_path
                   ),
-                  );
-                }),
+                );
+              }
+            ),
           )
         ],
       ),
