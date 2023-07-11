@@ -26,7 +26,6 @@ class CardMovie extends StatelessWidget {
       child: Align (
         alignment: Alignment.bottomRight,
         child:FloatingActionButton(
-          heroTag: this.image,
           hoverColor: Colors.transparent,
           foregroundColor: Colors.transparent,
           backgroundColor: Colors.transparent,
