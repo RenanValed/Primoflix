@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:primoflix/components/card_movie.dart';
 
 import '../controller/infinite_scoll.dart';
 
@@ -10,9 +9,9 @@ class MoviePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 18, 18, 18),
+      backgroundColor: const Color.fromARGB(255, 18, 18, 18),
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 48, horizontal: 24),
+        padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 24),
         child: Column(
           children: [
             Row(
@@ -45,7 +44,7 @@ class MoviePage extends StatelessWidget {
                       foregroundColor:
                           MaterialStateProperty.all<Color>(Colors.white54),
                     ),
-                    child: Icon(Icons.filter_list_rounded),
+                    child: const Icon(Icons.filter_list_rounded),
                   ),
                 ),
               ],
@@ -63,7 +62,6 @@ class MoviePage extends StatelessWidget {
                     return false;
                   },
                   child: GridView.builder(
-                    padding: EdgeInsetsDirectional.symmetric( horizontal: 4, vertical: 24),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
@@ -71,12 +69,14 @@ class MoviePage extends StatelessWidget {
                     itemCount: controller.movieList.length + 1,
                     itemBuilder: (context, index) {
                       if (index < controller.movieList.length) {
-                        return Container(
-                          margin: EdgeInsets.all(2),
-                          child:CardMovie(
-                            image: '/1qos0X6EIi4KT9RmJiVGZB9Kw6l.jpg',
-                            id: 1
-                        ));
+                        return Card(
+                          child: Container(
+                            color: Colors.amber,
+                            child: Center(
+                                child:
+                                    Text(controller.movieList[index])),
+                          ),
+                        );
                       } else {
                         if (controller.movieList.isEmpty) {
                           return Container(); // Nenhum item

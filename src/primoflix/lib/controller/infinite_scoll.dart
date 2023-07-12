@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class InfiniteScrollController extends GetxController {
   final itemsPerPage = 18;
@@ -6,18 +8,28 @@ class InfiniteScrollController extends GetxController {
   var isLoading = false.obs;
   var currentPage = 1;
 
-  void loadMoreMovies() {
+  Future<void> loadMoreMovies() async {
     isLoading.value = true;
 
-    Future.delayed(const Duration(seconds: 2), () {
-      currentPage++;
-      final newItems = List.generate(
-        itemsPerPage,
-        (index) => 'Item ${(currentPage - 2) * itemsPerPage + index}',
-      );
-      movieList.addAll(newItems);
-      isLoading.value = false;
-    });
+    final apiKey = '0fffac71fbe41c4a03797e90ed24dbcb';
+    final apiUrl = 'https://api.themoviedb.org/3/discover/movie?api_key=$apiKey&page=$currentPage';
+
+    try {
+      final response = await http.get(Uri.parse(apiUrl));
+      if (response.statusCode == 200) {
+        final jsonData = jsonDecode(response.body);
+        final results = jsonData['results'];
+
+        final newItems = results.map<String>((movie) => movie['title'] as String).toList();
+        movieList.addAll(newItems);
+        currentPage++;
+      }
+    } catch (e) {
+      // Handle error
+      print('Error: $e');
+    }
+
+    isLoading.value = false;
   }
 
     @override
@@ -25,4 +37,4 @@ class InfiniteScrollController extends GetxController {
       super.onInit();
       loadMoreMovies();
     }
-  }
+}
