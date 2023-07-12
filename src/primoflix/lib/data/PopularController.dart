@@ -10,7 +10,7 @@ class PopularController extends GetxController{
   Future<void> onInit() async{
     super.onInit();
     isLoading(true);
-    var res = await fetchData('movie/popular?language=pt-BR');
+    var res = await fetchData('movie/popular');
     movieModel = MovieModel.fromJson(res);
     isLoading(false);
   }

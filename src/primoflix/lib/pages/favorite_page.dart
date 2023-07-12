@@ -14,6 +14,11 @@ class FavoritePage extends StatelessWidget {
     final favorites = cardMovieController.favorites;
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Favoritos', style: TextStyle(fontSize: 18)),
+        centerTitle: true,
+        backgroundColor:  Colors.transparent,  
+      ),
       backgroundColor: const Color.fromARGB(255, 18, 18, 18),
       body: favorites.isEmpty
           ? const Center(
