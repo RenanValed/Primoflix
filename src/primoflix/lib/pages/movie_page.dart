@@ -40,11 +40,11 @@ class MoviePage extends StatelessWidget {
                     onPressed: () {},
                     style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.black54),
+                          MaterialStateProperty.all<Color>(Colors.transparent),
                       foregroundColor:
-                          MaterialStateProperty.all<Color>(Colors.white54),
+                          MaterialStateProperty.all<Color>(Colors.red),
                     ),
-                    child: const Icon(Icons.filter_list_rounded),
+                    child: const Icon(Icons.search_outlined, size: 32),
                   ),
                 ),
               ],
@@ -62,6 +62,7 @@ class MoviePage extends StatelessWidget {
                     return false;
                   },
                   child: GridView.builder(
+                    padding: EdgeInsets.only(top: 36),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
