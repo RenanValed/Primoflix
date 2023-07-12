@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:primoflix/components/card_movie.dart';
+import 'package:flutter/cupertino.dart';
 import '../controller/infinite_scoll.dart';
 
 class MoviePage extends StatelessWidget {
@@ -18,8 +19,9 @@ class MoviePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Flexible(
+                Flexible(
                   child: TextField(
+                    onChanged: (query)=> controller.updateSearchQuery(query),
                     style: TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
@@ -28,7 +30,7 @@ class MoviePage extends StatelessWidget {
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(width: 1, color: Colors.white),
                       ),
-                      hintText: "O que deseja assistir?",
+                      hintText: "Pesquise aqui, meu primo",
                       hintStyle: TextStyle(color: Colors.white54),
                     ),
                   ),
@@ -37,7 +39,7 @@ class MoviePage extends StatelessWidget {
                   minWidth: 200.0,
                   height: 200.0,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () => controller.fetchDataSearch(),
                     style: ButtonStyle(
                       backgroundColor:
                           MaterialStateProperty.all<Color>(Colors.transparent),
@@ -66,17 +68,15 @@ class MoviePage extends StatelessWidget {
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
+                          mainAxisSpacing: 8,
+                          crossAxisSpacing: 8,
                     ),
                     itemCount: controller.movieList.length + 1,
                     itemBuilder: (context, index) {
                       if (index < controller.movieList.length) {
-                        return Card(
-                          child: Container(
-                            color: Colors.amber,
-                            child: Center(
-                                child:
-                                    Text(controller.movieList[index])),
-                          ),
+                        return CardMovie(
+                          image:controller.movieList[index].poster_path,
+                          id: controller.movieList[index].id
                         );
                       } else {
                         if (controller.movieList.isEmpty) {
