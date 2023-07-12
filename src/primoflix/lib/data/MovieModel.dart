@@ -22,7 +22,7 @@ class MovieModel {
 
 class Movie {
   final bool adult;
-  final int id;
+  final int? id;
   final String original_language;
   final String overview;
   final double popularity;
