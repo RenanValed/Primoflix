@@ -68,6 +68,8 @@ class MoviePage extends StatelessWidget {
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
+                          mainAxisSpacing: 8,
+                          crossAxisSpacing: 8,
                     ),
                     itemCount: controller.movieList.length + 1,
                     itemBuilder: (context, index) {
