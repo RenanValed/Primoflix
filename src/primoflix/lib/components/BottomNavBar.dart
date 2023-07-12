@@ -6,9 +6,11 @@ import 'package:primoflix/pages/movie_page.dart';
 import 'package:primoflix/pages/home_page.dart';
 import 'package:primoflix/components/header.dart';
 
+import '../controller/card_movie_controller.dart';
 import '../controller/nav_controller.dart';
 
 class BottomNav extends StatelessWidget {
+  final cardMovieController = Get.put(CardMovieController());
   final TextStyle unselectedLabelStyle = TextStyle(
       color: Colors.white.withOpacity(0.5),
       fontWeight: FontWeight.w500,
@@ -84,7 +86,7 @@ class BottomNav extends StatelessWidget {
             children: [
               HomePage(),
               MoviePage(),
-              const FavoritePage(),
+              FavoritePage(cardMovieController: cardMovieController,),
             ],
           ),
         ),
@@ -92,3 +94,4 @@ class BottomNav extends StatelessWidget {
     );
   }
 }
+
