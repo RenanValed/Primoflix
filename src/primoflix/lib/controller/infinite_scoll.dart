@@ -1,10 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:primoflix/data/MovieModel.dart';
+
 class InfiniteScrollController extends GetxController {
   final itemsPerPage = 18;
-  var movieList = <String>[].obs;
+  var movieList = <MovieModel>[].obs;
   var isLoading = false.obs;
   var currentPage = 1;
 
@@ -19,14 +22,12 @@ class InfiniteScrollController extends GetxController {
       if (response.statusCode == 200) {
         final jsonData = jsonDecode(response.body);
         final results = jsonData['results'];
-
-        final newItems = results.map<String>((movie) => movie['title'] as String).toList();
-        movieList.addAll(newItems);
+        movieList.addAll(results);
         currentPage++;
       }
     } catch (e) {
       // Handle error
-      print('Error: $e');
+      debugPrint('Error: $e');
     }
 
     isLoading.value = false;
